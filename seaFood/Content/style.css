@@ -1,0 +1,222 @@
+﻿* {
+    margin: 0;
+}
+
+body {
+    background-color: #f3f3f3;
+}
+
+.side-bar {
+    /* background-image: url(../images/logo.png);
+    background-repeat: no-repeat; */
+    background-color: #6699ff;
+    width: 19%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1060;
+}
+
+.input-search input[type="text"] {
+    border-radius: 35px;
+    outline: none;
+    border: 1px solid #aaa;
+    width: 663px;
+    height: 52px;
+    font-size: 16px;
+    background-color: rgba(209, 209, 209, 0.575);
+    padding-left: 20px;
+}
+
+input[type="text"]:focus {
+    border-color: #99ffff;
+    box-shadow: 0 0 10px 0 #6699ff;
+}
+
+.main {
+    margin-left: calc(100% - 81.8%);
+}
+
+.footer {
+    background-color: #87ceeb;
+    width: 100%;
+    height: 396px;
+    margin-top: calc(100% - 95.5rem);
+    position: relative;
+}
+
+.user-list {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+    .user-list p {
+        margin: 15px;
+    }
+
+        .user-list p a {
+            text-decoration: none;
+            font-size: 26px;
+            color: white;
+        }
+
+            .user-list p a:hover {
+                text-decoration: underline;
+            }
+
+.header {
+    display: flex;
+    margin-top: 17px;
+    margin-bottom: 17px;
+    justify-content: space-around;
+}
+
+.icon {
+    display: flex;
+    justify-content: space-around;
+    width: 110px;
+}
+
+.login,
+.icon-theme {
+    border: 1px solid #6699ff;
+    height: 40px;
+    width: 40px;
+    text-align: center;
+    border-radius: 50%;
+}
+
+    .icon-theme:hover {
+        background-color: rgba(170, 170, 170, 0.247);
+        cursor: pointer;
+    }
+
+    .login:hover {
+        background-color: rgba(170, 170, 170, 0.247);
+        cursor: pointer;
+    }
+
+i {
+    color: #6699ff;
+    font-size: 18px;
+    margin-top: 12px;
+}
+
+#login-register {
+    display: none;
+    width: 110px;
+    height: 40px;
+    margin-top: 10px;
+    background-color: #6699ff;
+    position: absolute;
+    box-shadow: 1px 2px 30px #87ceeb;
+    z-index: 1;
+    line-height: 38px;
+    border-radius: 10px;
+}
+
+    #login-register a {
+        text-decoration: none;
+        color: white;
+        font-size: 18px;
+    }
+
+        #login-register a button {
+            width: 110px;
+            border: none;
+            background-color: #6699ff;
+            border-radius: 10px;
+        }
+
+            #login-register a button:hover {
+                border: none;
+                background-color: rgba(170, 170, 170, 0.486);
+                color: white;
+            }
+
+.product-title h2,
+.news-title h2 {
+    margin-left: 5.5rem;
+}
+
+.image-slide {
+    display: flex;
+    margin-left: 105px;
+}
+
+.image img {
+    height: 110px;
+    width: 200px;
+}
+
+.news-detail {
+    margin-bottom: 30px;
+    margin-left: 50px;
+    display: grid;
+    grid-template-columns: auto auto auto auto;
+    gap: 60px;
+}
+
+.gradient-custom {
+    /* fallback for old browsers */
+    background: #f093fb;
+    /* Chrome 10-25, Safari 5.1-6 */
+    background: -webkit-linear-gradient(to bottom right, rgba(240, 147, 251, 1), rgba(245, 87, 108, 1));
+    /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    background: linear-gradient(to bottom right, rgba(240, 147, 251, 1), rgba(245, 87, 108, 1))
+}
+
+.card-registration .select-input.form-control[readonly]:not([disabled]) {
+    font-size: 1rem;
+    line-height: 2.15;
+    padding-left: .75em;
+    padding-right: .75em;
+}
+
+.card-registration .select-arrow {
+    top: 13px;
+}
+
+
+@media only screen and (max-width: 1600px) {
+    .side-bar {
+        width: 237px;
+    }
+
+        .side-bar img {
+            width: 225px;
+        }
+
+        .side-bar .user-list p a {
+            font-size: 23px;
+        }
+
+    input[type="text"] {
+        width: calc(1600px - 989px);
+        height: 42px;
+    }
+
+    .product-title h2 {
+        font-size: 26px;
+    }
+
+    .feature-news h2 {
+        font-size: 26px;
+    }
+}
+
+@media only screen and (max-width: 2560px) {
+    .side-bar {
+        width: 21.6rem;
+    }
+
+    .logo--left img {
+        width: 343px;
+    }
+
+    .side-bar__list .user-list p a {
+        font-size: 34px;
+    }
+}

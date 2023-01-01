@@ -1,0 +1,26 @@
+﻿@model seaFood.Models.subcategory
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Areas/admin/Views/Shared/Admin.cshtml";}
+
+<h2>Chi tiết</h2>
+
+<div>
+    <h4>subcategory</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.subcategory_name)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.subcategory_name)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.subcategory_id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -1,0 +1,60 @@
+﻿@using seaFood.Models;
+@model List<Cart>
+@{
+    ViewBag.Title = "ShowCart";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    td img {
+        width: 130px;
+        height: 130px;
+    }
+</style>
+<h2 style="text-align: center;">Thông Tin Giỏ Hàng</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <th>Mã Sản Phẩm</th>
+            <th>Tên Sản Phẩm</th>
+            <th>Ảnh</th>
+            <th>Số Lượng</th>
+            <th>Đơn Giá</th>
+            <th>Tổng Tiền</th>
+            <th>Cập Nhật</th>
+            <th>Xóa</th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.MaSanPham</td>
+                <td>@item.TenSanPham</td>
+                <td><img src="~/images/@item.AnhSanPham" /></td>
+                @using (Html.BeginForm("UpdateOrder", "shoppingcart", new { MaSP = item.MaSanPham }))
+                {
+                    <td>
+                        <input type="number" min="1" value="@item.SoLuong" name="_quan" />
+                    </td>   
+                    <td>@item.DonGia</td>
+                    <td>@item.ThanhTien()</td>
+                    <td>
+                        <button type="submit" class="btn btn-primary">Cập nhật</button>
+                    </td>
+                }
+                <td>@Html.ActionLink("Xóa", "Delete", "shoppingcart", new { MaSP = item.MaSanPham }, new { @class = "btn btn-danger" })</td>
+            </tr>
+        }
+        <tr style="font-weight:bold; text-align:right; color:red;">
+            <td colspan="5">Tổng số lượng: @ViewBag.total</td>
+            <td colspan="1">Tổng tiền: @ViewBag.total_price</td>
+        </tr>
+        <tr style="font-weight:bold; text-align:center;">
+            <td colspan="9">
+                @Html.ActionLink("ĐẶT HÀNG", "Order", null, new { @class = "btn btn-primary" })
+            </td>
+        </tr>
+    </tbody>
+</table>
+
+

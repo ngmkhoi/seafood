@@ -1,0 +1,68 @@
+﻿@using seaFood.Models
+@{
+    user users = (user)Session["TaiKhoan"];
+}
+@if (users != null)
+{
+    <style>
+        .icon {
+            z-index: 999;
+        }
+    </style>
+    <div class="icon">
+        <div class="login" onclick="showLogin()">
+            <div class="icon-login">
+                <i class="fas fa-user"></i>@users.name
+            </div>
+            <div class="login-register" id="login-register">
+                <a href="@Url.Action("Details","users")" class="user-login">
+                    <button>
+                        <span>Thông Tin</span>
+                    </button>
+                </a>
+                <a href="@Url.Action("Edit","users", new {id = users.id})" class="user-login">
+                    <button>
+                        <span>Chỉnh Sửa</span>
+                    </button>
+                </a>
+                <a href="@Url.Action("LogOut","users")" class="user-login">
+                    <button>
+                        <span>Đăng Xuất</span>
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+}
+else
+{
+    <style>
+        .icon {
+            z-index: 999;
+        }
+    </style>
+    <div class="icon">
+        <div class="login" onclick="showLogin()">
+            <div class="icon-login">
+                <i class="fas fa-user"></i>
+            </div>
+            <div class="login-register" id="login-register">
+                <a href="@Url.Action("SignIn","users")" class="user-login">
+                    <button>
+                        <span>Đăng nhập</span>
+                    </button>
+                </a>
+                <a href="@Url.Action("SignUp","users")" class="user-login">
+                    <button>
+                        <span>Đăng Ký</span>
+                    </button>
+                </a>
+            </div>
+        </div>
+    </div>
+}
+<div class="ml-auto">
+    <a href="@Url.Action("ShowCart", "shoppingcart")" style="text-decoration: none; color:black; font-weight: bold">
+        <img src="~/images/Giohang.gif" /> Giỏ hàng (@ViewBag.total)
+    </a>
+</div>

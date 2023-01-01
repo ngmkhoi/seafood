@@ -1,0 +1,61 @@
+﻿
+@{
+    ViewBag.Title = "Index";
+}
+<script>
+var slideIndex = 1;
+showDivs(slideIndex);
+
+function plusDivs(n) {
+  showDivs(slideIndex += n);
+}
+
+function showDivs(n) {
+  var i;
+  var x = document.getElementsByClassName("mySlides");
+  if (n > x.length) {slideIndex = 1}
+  if (n < 1) {slideIndex = x.length}
+  for (i = 0; i < x.length; i++) {
+    x[i].style.display = "none";
+  }
+  x[slideIndex-1].style.display = "block";
+}
+</script>
+
+<style>
+    .img {
+        text-align: center;
+    }
+
+    h2 {
+        justify-content: space-between;
+        background-color: blue;
+    }
+
+    h3 {
+        justify-content: space-around;
+        background-color: blue;
+    }
+</style>
+
+<h2 style=" justify-content: center; background-color: cornflowerblue; display: flex; text-align: center; width: 99%; margin-left: 10px; border: solid 0px; border-radius: 10px; height: 51px; align-items: center;">Lịch sử hình thành</h2>
+<p style="font-size: 20px; background-color: antiquewhite; width: 99%; margin: 25px 11px 0 10px; border: solid black 1px; height: 180px; padding: 14px;">Bằng tình yêu và tâm huyết với hải sản của các cổ đông, tháng 11 năm 2013, Nhà hàng Siêu thị Thế Giới Hải Sản cơ sở 1 ra đời, tại địa điểm số 18 Dương Đình Nghệ, Cầu Giấy, Hà Nội. Sau chặng khởi đầu đầy gian nan và nhiều thách thức, đến tháng 6/2014, CB CNV Thế Giới Hải Sản hân hoan chào đón cơ sở 2 tại 75A Trần Hưng Đạo. Một năm sau, vào tháng 11 năm 2015, cơ sở 3 với quy mô lớn hơn, đầu tư mạnh hơn đã được khai trương tại tòa nhà Golden Palace, Mễ Trì, Nam Từ Liêm, Hà Nội.</p>
+<div class="img"
+     style="width: auto; height: auto;justify-content: space-between">
+    <img src="~/Images/history.jpg" alt="..." style="width: 80%; padding-top: 15px;">
+</div>
+<p style="font-size: 20px; margin-bottom: 25px; background-color: antiquewhite; width: 99%; margin: 25px 11px 0 10px; border: solid black 1px; height: 180px; padding: 14px;">Kế thừa những thành công tại chuỗi nhà hàng hải sản và thấu hiểu thời gian thực khách bỏ ra còn giá trị hơn cả số tiền chi tiêu, hệ thống Nhà hàng Siêu thị Thế giới hải sản – “Con gì đang bơi chúng tôi đều có” tiếp tục mở rộng cơ sở trên khắp các quận thành với sự ra đời của cơ sở 8 tại 60 Vũ Trọng Khánh vào ngày 16/5. Mang hơi thở và tâm hồn của biển cùng sự biến tấu mới mẻ, Thế Giới Hải Sản 60 Vũ Trọng Khánh là chốn bình yên, an nhiên, tịnh tại cho những người yêu biển, yêu thủ đô và yêu thích những món ăn chế biến từ hải sản.</p>
+
+
+
+<h3 style=" justify-content: center; background-color: cornflowerblue; display: flex; text-align: center; width: 99%; margin-left: 10px; border: solid 0px; border-radius: 10px; height: 51px; align-items: center;">Không Gian Nhà Hàng</h3>
+<p style="font-size: 20px; background-color: antiquewhite; width: 99%; margin: 25px 11px 0 10px; border: solid black 1px; height: 180px; padding: 14px;">Toàn bộ hệ thống Nhà hàng Siêu thị Thế Giới Hải Sản được thiết kế thống nhất theo chủ đề “Đưa đại dương xanh vào nhà” nên mang đậm hơi thở của biển. Với kiến trúc độc đáo, xanh mát, khách hàng bước vào nhà hàng hải sản sẽ có cảm giác thư thái, sảng khoái như được du ngoạn trên những bãi biển thực sự.</p>
+
+<div class="w3-content w3-display-container">
+    <img class="mySlides" src="~/Images/space.jpg" style="width:100%">
+    <img class="mySlides" src="~/Images/space1.jpg" style="width:100%">
+
+    <button class="w3-button w3-black w3-display-left" onclick="plusDivs(-1)">&#10094;</button>
+    <button class="w3-button w3-black w3-display-right" onclick="plusDivs(1)">&#10095;</button>
+</div>
+

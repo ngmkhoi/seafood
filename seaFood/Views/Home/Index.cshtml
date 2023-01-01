@@ -1,0 +1,128 @@
+﻿    @model IEnumerable<seaFood.Models.product>
+    @{
+        ViewBag.Title = "Home Page";
+        Layout = "~/Views/Shared/_Layout.cshtml";
+    }
+
+    <div class="slide-show">
+        <div class="bg-poster">
+            <div class="poster--left">
+                <img src="" alt="" id="left-img">
+            </div>
+            <div class="poster--main">
+                <img src="" alt="" id="main-img">
+            </div>
+            <div class="poster--right">
+                <img src="" alt="" id="right-img">
+            </div>
+        </div>
+    </div>
+    <div class="featured-product">
+        <div class="product-title">
+            <h2>Sản phẩm nổi bật</h2>
+        </div>
+        <div class="image-slide">
+            @foreach (var item in Model)
+            {
+                <div class="image-list">
+                    <div class="image">
+                        <img src="~/images/@item.images">
+                    </div>
+                    <div class="name-product">
+                        <h5>@Html.DisplayFor(modelItem => item.product_name)</h5>
+                        <a>@Html.DisplayFor(modelItem => item.price) VNĐ</a>
+                    </div>
+                </div>
+            }
+        </div>
+        <div class="feature-news">
+            <div class="news-title">
+                <h2>Tin tức nổi bật</h2>
+            </div>
+            <div class="news-detail">
+                <div class="card" style="width: 18rem;">
+                    <img src="~/Images/Solong.jfif" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <div class="text-introduce-seafood">Sò Lông Tươi Sống</div>
+                        <div class="price">520.000 ₫</div>
+                        <div class="rating">
+                            <span>☆</span>
+                            <span>☆</span>
+                            <span>☆</span>
+                            <span>☆</span>
+                            <span>☆</span>
+                        </div>
+                        <a href="@Url.Action("Index","products")" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+                <div class="card" style="width: 18rem;">
+                    <img src="~/Images/oc-gai-2.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <div class="text-introduce-seafood">Ốc Gai</div>
+                        <div class="price">349.000 ₫</div>
+                        <div class="star">
+                            <div class="rating1">
+                                <span>☆</span>
+                                <span>☆</span>
+                                <span>☆</span>
+                                <span>☆</span>
+                                <span>☆</span>
+                            </div>
+                            <a href="@Url.Action("Index","products")" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                    </div>
+                <div class="card" style="width: 18rem;">
+                    <img src="~/Images/oc-do-song.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <div class="text-introduce-seafood">Ốc Đỏ</div>
+                        <div class="price">520.000 ₫</div>
+                        <div class="star">
+                            <div class="rating">
+                                <span>☆</span>
+                                <span>☆</span>
+                                <span>☆</span>
+                                <span>☆</span>
+                                <span>☆</span>
+                            </div>
+                            <a href="@Url.Action("Index","products")" class="btn btn-primary">Go somewhere</a>
+                        </div>
+                    </div>
+                    </div>
+                <div class="card" style="width: 18rem;">
+                    <img src="~/Images/ngheungoc.jpg" class="card-img-top" alt="...">
+                    <div class="card-body">
+                        <div class="text-introduce-seafood">Nghêu Ngọc</div>
+                        <div class="price">580.000 ₫</div>
+                        <div class="star">
+                            <div class="rating1">
+                                <span>☆</span>
+                                <span>☆</span>
+                                <span>☆</span>
+                                <span>☆</span>
+                                <span>☆</span>
+                            </div>
+                        </div>
+                        <a href="@Url.Action("Index","products")" class="btn btn-primary">Go somewhere</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
+    @section scripts{
+        <script type="text/javascript" src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $('.image-slide').slick({
+                    slidesToShow: 5,
+                    slidesToScroll: 1,
+                    autoplay: true,
+                    autoplaySpeed: 2500,
+                    arrows: false,
+                });
+            })
+        </script>
+    }

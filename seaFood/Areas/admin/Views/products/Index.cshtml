@@ -1,0 +1,83 @@
+﻿@using seaFood.Models;
+@model PagedList.PagedList<seaFood.Models.product>
+@using PagedList.Mvc;
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Areas/admin/Views/Shared/Admin.cshtml";}
+<style>
+    img {
+        height: 150px;
+        width: 150px;
+    }
+</style>
+<h2>Danh sách sản phẩm</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th style="width:200px">
+            Tên Sản Phẩm
+        </th>
+        <th>
+            Giá
+        </th>
+        <th>
+            Mô tả
+        </th>
+        <th>
+            Hình ảnh
+        </th>
+
+        <th>
+            Loại sản phẩm
+        </th>
+
+        <th>
+            Chế biến
+        </th>
+
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.product_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.description)
+            </td>
+            <td>
+                <img src="~/images/@item.images" />
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.category.category_name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.subcategory.subcategory_name)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.product_id }) |
+                @Html.ActionLink("Details", "Details", new { id = item.product_id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.product_id })
+            </td>
+        </tr>
+    }
+
+</table>
+<br />
+
+<br />
+<!-- Thêm phân trang vào -->
+Trang @(Model.PageCount < Model.PageNumber ? 0 : Model.PageNumber) / @Model.PageCount
+<div class="pagination">
+    @Html.PagedListPager(Model, page => Url.Action("Index", new { page = page }))
+</div>
+

@@ -1,0 +1,40 @@
+﻿@model IEnumerable<seaFood.Models.product>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+<style>
+    .news-detail {
+        margin-top: 50px;
+        margin-left: 80px;
+    }
+
+        .news-detail a {
+            text-decoration: none;
+            color: black;
+        }
+
+            .news-detail a img {
+                height: 190px;
+                width: 287px;
+                transition: transform .6s;
+            }
+
+                .news-detail a img:hover {
+                    -ms-transform: scale(1.5); /* IE 9 */
+                    -webkit-transform: scale(1.5); /* Safari 3-8 */
+                    transform: scale(1.5);
+                }
+</style>
+<div class="news-detail">
+    @foreach (var item in Model)
+    {
+        <a href="@Url.Action("Details", "products", new { id = item.product_id })" class="card" style="width: 18rem;">
+            <img src="~/images/@item.images" class="card-img-top" alt="...">
+            <div class="card-body">
+                <h5 class="card-title">@Html.DisplayFor(modelItem => item.product_name)</h5>
+                <p class="card-text">@Html.DisplayFor(modelItem => item.price)</p>
+            </div>
+        </a>
+    }
+</div>

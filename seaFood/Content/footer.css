@@ -1,0 +1,32 @@
+﻿.row-footer {
+    background-color: #111;
+}
+
+.parent-footer {
+    width: 85%;
+    height: 450px;
+    margin: auto;
+    padding: 50px 0 0 0;
+    display: flex;
+    flex-direction: row;
+}
+
+.common-footer {
+    width: 25%;
+    display: flex;
+    flex-direction: column;
+    margin-left:365px;
+}
+
+.common-present-footer {
+    font-weight: 700;
+    color: #fff;
+    margin-bottom: 15px;
+}
+
+.common-text-footer {
+    color: #fff;
+    font-size: 14px;
+    margin: 5px 5px 15px 0;
+    font-weight: 500;
+}

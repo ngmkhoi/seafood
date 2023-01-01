@@ -1,0 +1,68 @@
+﻿@using seaFood.Models
+@model List<Cart>
+@{
+    ViewBag.Title = "order";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+    user user = Session["TaiKhoan"] as user;
+}
+
+<style>
+    tbody tr td img {
+        width: 130px;
+        height: 130px;
+    }
+</style>
+
+<h2 style="text-align:center">THÔNG TIN CỦA GIỎ HÀNG</h2>
+<table class="table table-bordered">
+    <thead>
+        <tr>
+            <td>Mã Sản Phẩm</td>
+            <td>Tên Sản Phẩm</td>
+            <td>Ảnh</td>
+            <td>Số Lượng</td>
+            <td>Đơn Giá</td>
+            <td>Tổng Số Tiền</td>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.MaSanPham</td>
+                <td>@item.TenSanPham</td>
+                <td><img src="~/images/@item.AnhSanPham" /></td>
+                <td>@item.SoLuong</td>
+                <td>@String.Format("{0:0,0}", item.DonGia)</td>
+                <td>@String.Format("{0:0,0}", item.ThanhTien())</td>
+            </tr>
+        }
+        <tr style="font-weight:bold; text-align:right;color:red">
+            <td colspan="4">Tổng số lượng: @ViewBag.total</td>
+            <td colspan="5">Tổng tiền: @ViewBag.total_price</td>
+        </tr>
+    </tbody>
+</table>
+
+<h2 style="text-align:center">THÔNG TIN CỦA KHÁCH HÀNG</h2>
+<table class="table table-bordered">
+    <tr>
+        <td>Họ tên:</td>
+        <td>@user.name</td>
+    </tr>
+    <tr>
+        <td>Số điện thoại</td>
+        <td>@user.phone</td>
+    </tr>
+    <tr>
+        <td>Ngày đặt</td>
+        <td>@DateTime.Now.ToShortDateString()</td>
+    </tr>
+    <tr>
+        <td colspan="2" style="text-align:center">
+            @Html.ActionLink("Đồng ý đặt hàng", "AcceptOrder", null, new { @class = "btn btn-primary" })
+        </td>
+    </tr>
+</table>
+
+
